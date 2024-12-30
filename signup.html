@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lagos State PHC Signup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f5f5f5;
+            padding: 2rem 0;
+        }
+
+        .signup-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin: 1rem;
+        }
+
+        .signup-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .signup-header h1 {
+            color: #006400;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #006400;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #006400;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background-color: #004d00;
+        }
+
+        select {
+            background-color: white;
+        }
+
+        .required {
+            color: red;
+            margin-left: 3px;
+        }
+
+        select optgroup {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-header">
+            <h1>Lagos State PHC Registration</h1>
+            <p>Please complete all required fields</p>
+        </div>
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="fullName">Full Name<span class="required">*</span></label>
+                <input type="text" id="fullName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="role">Role<span class="required">*</span></label>
+                <select id="role" required>
+                    <option value="">Select Role</option>
+                    <option value="medical-officer">Medical Officer</option>
+                    <option value="midwife">Midwives</option>
+                    <option value="registered-nurse">Registered Nurse</option>
+                    <option value="cho">CHO</option>
+                    <option value="chew">CHEW</option>
+                    <option value="pharmacist">Pharmacist</option>
+                    <option value="pharmacy-technician">Pharmacy Technician</option>
+                    <option value="eho">EHOs</option>
+                    <option value="medical-lab-scientist">Medical Laboratory Scientist</option>
+                    <option value="medical-lab-technician">Medical Laboratory Technician</option>
+                    <option value="heo">HEOs</option>
+                    <option value="him-officer">HIM Officers</option>
+                    <option value="him-technician">HIM Technicians</option>
+                    <option value="administrative-officer">Administrative Officers</option>
+                    <option value="security-personnel">Security Personnel</option>
+                    <option value="clinic-attendant">Clinic Attendants</option>
+                    <option value="birth-registrar">Birth Registrar</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number<span class="required">*</span></label>
+                <input type="tel" id="phone" required pattern="[0-9]{11}" placeholder="Enter 11 digit phone number">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email<span class="required">*</span></label>
+                <input type="email" id="email" required 
+                       pattern="[a-zA-Z0-9._%+-]+@lagosstate\.gov\.ng$"
+                       placeholder="example@lagosstate.gov.ng">
+            </div>
+            
+            <div class="form-group">
+                <label for="lga">LGA/LCDA<span class="required">*</span></label>
+                <select id="lga" required>
+                    <option value="">Select LGA/LCDA</option>
+                    <optgroup label="Agege">
+                        <option value="agege">AGEGE LGA</option>
+                        <option value="orile-agege">ORILE-AGEGE LCDA</option>
+                    </optgroup>
+                    <optgroup label="Ifako-Ijaiye">
+                        <option value="ifako-ijaiye">IFAKO-IJAIYE LGA</option>
+                        <option value="ojokoro">OJOKORO LCDA</option>
+                    </optgroup>
+                    <optgroup label="Alimosho">
+                        <option value="alimosho">ALIMOSHO LGA</option>
+                        <option value="agbado-oke-odo">AGBADO/OKE-ODO LCDA</option>
+                        <option value="egbe-idimu">EGBE-IDIMU LCDA</option>
+                        <option value="igando-ikotun">IGANDO-IKOTUN LCDA</option>
+                        <option value="ayobo-ipaja">AYOBO-IPAJA LCDA</option>
+                        <option value="mosan-okunola">MOSAN-OKUNOLA LCDA</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="phc">Primary Healthcare Center<span class="required">*</span></label>
+                <select id="phc" required disabled>
+                    <option value="">Select LGA/LCDA first</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Registration</button>
+        </form>
+    </div>
+
+    <script>
+        const phcsByRegion = {
+            'agege': [
+                'Sango PHC',
+                'Dopemu PHC',
+                'Iloro PHC',
+                'Kwakwa Uku PHC',
+                'Ajegunle PHC'
+            ],
+            'orile-agege': [
+                'Odunmbaku PHC',
+                'Powerline PHC',
+                'Claudiana Ibijoke Sanwo-Olu PHC'
+            ],
+            'ifako-ijaiye': [
+                'Ifako PHC',
+                'Ogundimu PHC',
+                'Iju PHC',
+                'Obawole PHC',
+                'Aina Ajobo PHC',
+                'Papa Ashafa Health Post'
+            ],
+            'ojokoro': [
+                'Kola PHC',
+                'Isokan PHC',
+                'Abule Titun PHC',
+                'Ilo Ajegunle PHC',
+                'Adesola PHC',
+                'Ojokoro/Iwa PHC'
+            ],
+            'alimosho': [
+                'Akowonjo PHC',
+                'Orisunbare PHC',
+                'Ipinlerere PHC'
+            ],
+            'agbado-oke-odo': [
+                'Meiran PHC',
+                'Asiwaju Bola Ahmed Tinubu PHC',
+                'Agbelekale PHC',
+                'Aboru PHC',
+                'Agbado PHC',
+                'Amikanle PHC',
+                'Oki PHC'
+            ],
+            'egbe-idimu': [
+                'Isheri-olofin PHC',
+                'Helen Aderonke PHC',
+                'Agodo PHC',
+                'Ogbomoshotedo H/P'
+            ],
+            'igando-ikotun': [
+                'Ikotun (Elf Foundation) PHC',
+                'Isheri-Oshun PHC',
+                'Egan PHC',
+                'Abaranje-Okerube PHC',
+                'Ijegun PHC',
+                'Odo Isitu PHC',
+                'Obadore PHC',
+                'Ilado PHC'
+            ],
+            'ayobo-ipaja': [
+                'Ipaja PHC',
+                'Ayobo PHC',
+                'Baruwa PHC',
+                'Bada/Balogun PHC',
+                'Cele/Apata PHC'
+            ],
+            'mosan-okunola': [
+                'Rauf Aregbesola PHC',
+                'Akinyele PHC',
+                'Opeki PHC',
+                'Akinogun PHC',
+                'Kokumo PHC'
+            ]
+        };
+
+        const lgaSelect = document.getElementById('lga');
+        const phcSelect = document.getElementById('phc');
+
+        lgaSelect.addEventListener('change', function() {
+            const selectedLGA = this.value;
+            phcSelect.innerHTML = '<option value="">Select PHC</option>';
+            
+            if (selectedLGA) {
+                const phcs = phcsByRegion[selectedLGA] || [];
+                phcs.forEach(phc => {
+                    const option = document.createElement('option');
+                    option.value = phc.toLowerCase().replace(/\s+/g, '-');
+                    option.textContent = phc;
+                    phcSelect.appendChild(option);
+                });
+                phcSelect.disabled = false;
+            } else {
+                phcSelect.innerHTML = '<option value="">Select LGA/LCDA first</option>';
+                phcSelect.disabled = true;
+            }
+        });
+
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+
+            if (!email.endsWith('@lagosstate.gov.ng')) {
+                alert('Email must end with @lagosstate.gov.ng');
+                return;
+            }
+
+            if (phone.length !== 11 || !/^\d+$/.test(phone)) {
+                alert('Phone number must be exactly 11 digits');
+                return;
+            }
+
+            alert('Form submitted successfully!');
+        });
+    </script>
+</body>
+</html>
